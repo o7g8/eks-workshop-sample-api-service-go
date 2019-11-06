@@ -2,6 +2,7 @@
 version: 0.2
 phases:
   install:
+    # added runtime
     runtime-versions:
       docker: 18
     commands:
