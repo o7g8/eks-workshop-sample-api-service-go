@@ -34,7 +34,7 @@ phases:
       - export AWS_EXPIRATION=$(echo ${CREDENTIALS} | jq -r '.Credentials.Expiration')
       - aws eks update-kubeconfig --name $EKS_CLUSTER_NAME
       - K8SVER=$(aws eks describe-cluster --name $EKS_CLUSTER_NAME | jq -r '.cluster.version')
-      - curl -sSO https://storage.googleapis.com/kubernetes-release/release/v.${K8SVER}.0/bin/linux/amd64/
+      - curl -sSO "https://storage.googleapis.com/kubernetes-release/release/v.${K8SVER}.0/bin/linux/amd64/"
       - chmod +x ./kubectl
       - kubectl apply -f hello-k8s.yml
       - printf '[{"name":"hello-k8s","imageUri":"%s"}]' $REPOSITORY_URI:$TAG > build.json
